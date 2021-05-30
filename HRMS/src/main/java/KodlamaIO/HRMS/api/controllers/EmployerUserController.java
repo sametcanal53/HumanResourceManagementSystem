@@ -15,7 +15,7 @@ import KodlamaIO.HRMS.core.utilities.results.Result;
 import KodlamaIO.HRMS.entities.concretes.EmployerUser;
 
 @RestController
-@RequestMapping("/api/employerusers")
+@RequestMapping("/api/employerusers/")
 public class EmployerUserController {
 
     private EmployerUserService employerUserService;
@@ -26,12 +26,12 @@ public class EmployerUserController {
         this.employerUserService = employerUserService;
     }
 
-    @GetMapping("/getall")
+    @GetMapping("getAll")
     public DataResult<List<EmployerUser>> getAll(){
         return this.employerUserService.getAll();
     }
 
-    @PostMapping("/add")
+    @PostMapping("add")
     public Result add(@RequestBody EmployerUser employerUser) {
         return this.employerUserService.add(employerUser);
     }

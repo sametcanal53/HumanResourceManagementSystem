@@ -18,7 +18,7 @@ public class EmployerUserValidator extends UserValidator implements EmployerUser
 
         if(!super.userCheckFields(employerUser).isSuccess() || (companyName == null || companyName.isBlank()) ||
                  (companyWebsite == null || companyWebsite.isBlank()) || (phoneNumber == null || phoneNumber.isBlank())) {
-            return new ErrorResult("All fields need to be filled.");
+            return new ErrorResult("All fields need to be filled");
         }
         return new SuccessResult();
     }
@@ -31,7 +31,7 @@ public class EmployerUserValidator extends UserValidator implements EmployerUser
 
         String input = website.split("www.")[1];
         if(!(input.equals(email.split("@")[1]))) {
-            return new ErrorResult("All fields need to be filled.");
+            return new ErrorResult("All fields need to be filled");
         }
         return new SuccessResult();
 	}

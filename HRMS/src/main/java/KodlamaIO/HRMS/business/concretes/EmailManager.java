@@ -12,6 +12,6 @@ public class EmailManager implements EmailService{
 
 	@Override
 	public Result sendEmail(User user) {
-		return new SuccessResult("E posta gönderildi: " + user.getEmail());
+		return new SuccessResult("Send Email : " + user.getEmail());
 	}
 }
