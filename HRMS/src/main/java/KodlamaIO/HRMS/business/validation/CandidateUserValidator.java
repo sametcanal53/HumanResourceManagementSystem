@@ -25,7 +25,7 @@ public class CandidateUserValidator extends UserValidator implements CandidateUs
               ||  (identityNumber == null || identityNumber.isBlank() || identityNumber.length() != 11) 
               || (birthDate == null || birthDate.toString().isBlank())){
 					
-			return new ErrorResult("All fields are required to be filled");
+			return new ErrorResult("Bu alanların doldurulması zorunludur.");
 		}
 		return new SuccessResult();
 	}

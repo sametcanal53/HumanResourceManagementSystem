@@ -28,17 +28,17 @@ public class JobManager implements JobService{
 	@Override
 	public DataResult<List<Job>> getAll() {
 		return new SuccessDataResult<List<Job>>
-		(this.jobDao.findAll(),"Jobs listed");
+		(this.jobDao.findAll(),"iş pozisyonları Listelendi");
 	}
 
 	@Override
 	public Result add(Job job) {
 		
 		if(this.findByPosition(job.getPosition()).getData().size() != 0) {
-			return new ErrorResult("This job position already exists ");
+			return new ErrorResult("Böyle bir iş pozisyonu zaten mevcut");
 		}
 		this.jobDao.save(job);
-		return new SuccessResult("Job added");
+		return new SuccessResult("iş pozisyonu eklendi");
 	}
 
 	@Override

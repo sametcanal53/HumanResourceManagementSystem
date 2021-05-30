@@ -25,7 +25,7 @@ private CityDao cityDao;
 	@Override
 	public DataResult<List<City>> getAll() {
 		return new SuccessDataResult<List<City>>
-		(this.cityDao.findAll(),"Cities listed");
+		(this.cityDao.findAll(),"Şehirler Listelendi");
 
 	}
 

@@ -12,7 +12,7 @@ public abstract class UserValidator {
 		String password = user.getPassword();
 		
 		if((email == null ||  email.isBlank()) || (password==null || password.isBlank())) {
-			return new ErrorResult("These fields are required to be filled.");
+			return new ErrorResult("Lütfen tüm alanları doldurduğunuzdan emin olun.");
         }
 		return new SuccessResult();
 	}

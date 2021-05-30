@@ -40,7 +40,7 @@ public class CandidateUserManager extends UserManager<CandidateUser> implements 
 
 	@Override
 	public DataResult<List<CandidateUser>> getAll() {
-		return new SuccessDataResult<List<CandidateUser>>(this.candidateUserDao.findAll(), "Candidates listed.");
+		return new SuccessDataResult<List<CandidateUser>>(this.candidateUserDao.findAll(), "İş arayanlar listelendi.");
 	}
 
 	@Override
@@ -66,18 +66,18 @@ public class CandidateUserManager extends UserManager<CandidateUser> implements 
 		var input = this.candidateUserDao.existsByIdentityNumber(identityNumber);
 		
 		if(input) {
-			return new ErrorResult("This identity number is already registered in the system.");
+			return new ErrorResult("Bu kimlik numarsı sisteme zaten kayıtlı.");
 		}
-		return new SuccessResult("Verification successful");
+		return new SuccessResult("Doğrulama başarılı.");
 	}
 
 	public Result ısUserReal(String identityNumber,String firstName, String lastName, LocalDate birthDate) {
 		var input = this.userCheckService.checkRealPerson(identityNumber, firstName, lastName, birthDate);
 		
 		if(!input) {
-			return new ErrorResult("This user is not real");
+			return new ErrorResult("Bu kullanıcı gerçek değil");
 		}
-		return new SuccessResult("Verification successful");
+		return new SuccessResult("Doğrulama başarılı.");
 	}
 
 }

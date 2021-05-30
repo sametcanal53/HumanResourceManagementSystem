@@ -12,7 +12,7 @@ import KodlamaIO.HRMS.core.utilities.results.DataResult;
 import KodlamaIO.HRMS.entities.concretes.EmployeeUser;
 
 @RestController
-@RequestMapping("/api/employeeusers/")
+@RequestMapping("/api/employeeusers")
 public class EmployeeUserController {
 
     private EmployeeUserService employeeUserService;
@@ -23,7 +23,7 @@ public class EmployeeUserController {
         this.employeeUserService = employeeUserService;
     }
 
-    @GetMapping("getAll")
+    @GetMapping
     public DataResult<List<EmployeeUser>> getAll(){
         return this.employeeUserService.getAll();
     }

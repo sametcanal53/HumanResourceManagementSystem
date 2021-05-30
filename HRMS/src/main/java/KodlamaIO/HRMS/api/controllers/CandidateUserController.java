@@ -15,7 +15,7 @@ import KodlamaIO.HRMS.core.utilities.results.Result;
 import KodlamaIO.HRMS.entities.concretes.CandidateUser;
 
 @RestController
-@RequestMapping("/api/candidateusers/")
+@RequestMapping("/api/candidateusers")
 public class CandidateUserController {
 
     private CandidateUserService candidateUserService;
@@ -26,12 +26,12 @@ public class CandidateUserController {
         this.candidateUserService = candidateUserService;
     }
 
-    @GetMapping("getAll")
+    @GetMapping("/getall")
     public DataResult<List<CandidateUser>> getAll(){
         return this.candidateUserService.getAll();
     }
 
-    @PostMapping("add")
+    @PostMapping("/add")
     public Result add(@RequestBody CandidateUser candidateUser) {
         return this.candidateUserService.add(candidateUser);
     }

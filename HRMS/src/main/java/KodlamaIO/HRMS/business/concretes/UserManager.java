@@ -33,15 +33,15 @@ public class UserManager<T extends User> implements UserService<T>{
 	@Override
 	public Result add(T user) {
 		this.userDao.save(user);
-		return new SuccessResult("User Added");
+		return new SuccessResult("kullanıcı eklendi");
 	}
 
 	public Result existsByEmail(String email) {
 		var input = this.userDao.existsByEmail(email);
 		
 		if(input) {
-			return new ErrorResult("This e-mail is registered in the system");
+			return new ErrorResult("Böyle bir mail adresi sistemde mevcut.");
 		}
-		return new SuccessResult("Verification successful");
+		return new SuccessResult("Doğrulama başarılı.");
 	}
 }

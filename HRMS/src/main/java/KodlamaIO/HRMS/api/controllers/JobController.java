@@ -15,7 +15,7 @@ import KodlamaIO.HRMS.core.utilities.results.Result;
 import KodlamaIO.HRMS.entities.concretes.Job;
 
 @RestController
-@RequestMapping("/api/jobs/")
+@RequestMapping("/api/jobs")
 public class JobController {
 
     private JobService jobService;
@@ -26,17 +26,17 @@ public class JobController {
         this.jobService = jobService;
     }
 
-    @GetMapping("getAll")
+    @GetMapping("/getall")
     public DataResult<List<Job>> getAll(){
         return this.jobService.getAll();
     }
 
-    @PostMapping("findByPosition")
+    @PostMapping("/findbyposition")
     public DataResult<List<Job>> findByPosition(@RequestBody String position){
         return this.jobService.findByPosition(position);
     }
 
-    @PostMapping("add")
+    @PostMapping("/add")
     public Result add(@RequestBody Job job) {
         return this.jobService.add(job);
     }

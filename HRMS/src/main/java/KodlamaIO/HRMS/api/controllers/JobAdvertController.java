@@ -18,7 +18,7 @@ import KodlamaIO.HRMS.entities.concretes.JobAdvert;
 
  
 @RestController
-@RequestMapping("/api/jobadvert/")
+@RequestMapping("/api/jobadvert")
 public class JobAdvertController {
 	
 	private JobAdvertService jobAdvertService;
@@ -29,23 +29,23 @@ public class JobAdvertController {
 		this.jobAdvertService = jobAdvertService;
 	}
 	
-	@GetMapping("getAll")
+	@GetMapping("/getall")
 	public DataResult<List<JobAdvert>> getAll(){
 		return this.jobAdvertService.getAll();
 		
 	}
 	
-	@GetMapping("getIsActive")
+	@GetMapping("getisactive")
     public DataResult<List<JobAdvert>> getIsActive(){
         return this.jobAdvertService.getByIsActiveTrue();
     }
 	
-	@GetMapping("findByIsActiveTrueOrderByPublishDateDesc")
+	@GetMapping("findbyisactivetrueorderbypublishdatedesc")
 	public DataResult<List<JobAdvert>> findByIsActiveTrueOrderByPublishDateDesc(){
 		return this.jobAdvertService.findByIsActiveTrueOrderByPublishDateDesc();
 	}
 	
-	@GetMapping("getByIsActiveAndEmployerCompany")
+	@GetMapping("getbyisactiveandemployercompany")
 	public DataResult<List<JobAdvert>> getByIsActiveAndEmployerCompany(@RequestParam int id){
 		return this.jobAdvertService.getByIsActiveAndEmployerCompany(id);
 	}
@@ -68,7 +68,7 @@ public class JobAdvertController {
 		return this.jobAdvertService.delete(id);
 	}
 	
-	@PostMapping("isActiveChange")
+	@PostMapping("/isactivechange")
     public Result isActiveChange(@RequestParam int id){
         return this.jobAdvertService.isActiveChange(id);
     }

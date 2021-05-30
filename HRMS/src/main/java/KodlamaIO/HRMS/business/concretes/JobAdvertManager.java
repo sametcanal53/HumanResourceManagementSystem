@@ -28,53 +28,53 @@ public class JobAdvertManager implements JobAdvertService{
 	@Override
 	public DataResult<List<JobAdvert>> getAll() {
 		return new SuccessDataResult<List<JobAdvert>>
-		(this.jobAdvertDao.findAll(),"Job adverts listed");
+		(this.jobAdvertDao.findAll(),"İş ilanları Listelendi");
 	}
 
 	@Override
 	public DataResult<List<JobAdvert>> getByIsActiveTrue() {
 		return new SuccessDataResult<List<JobAdvert>>
-		(this.jobAdvertDao.getByIsActiveTrue(),"All active job adverts listed");
+		(this.jobAdvertDao.getByIsActiveTrue(),"Tüm aktif iş ilanları listelendi");
 	}
 	
 	@Override
     public DataResult<List<JobAdvert>> findByIsActiveTrueOrderByPublishDateDesc() {
         return new SuccessDataResult<List<JobAdvert>>
-        (this.jobAdvertDao.findByIsActiveTrueOrderByPublishDateDesc(),"All active job adverts listed by publish date");
+        (this.jobAdvertDao.findByIsActiveTrueOrderByPublishDateDesc(),"Tüm aktif iş ilanları terihe göre listelendi.");
     }
 
 	@Override
 	public DataResult<List<JobAdvert>> getByIsActiveAndEmployerCompany(int id) {
 		return new SuccessDataResult<List<JobAdvert>>
-		(this.jobAdvertDao.findByIsActiveAndEmployerCompany(id),"All jobs for this company listed");
+		(this.jobAdvertDao.findByIsActiveAndEmployerCompany(id),"Bu firmaya ait tüm işler listelendi.");
 	}
 
 	@Override
 	public Result add(JobAdvert jobAdvert) {
 		this.jobAdvertDao.save(jobAdvert);
-		return new SuccessResult("Job advert added");
+		return new SuccessResult("İş ilanı eklendi.");
 	}
 
 	@Override
 	public Result update(JobAdvert jobAdvert) {
 		this.jobAdvertDao.save(jobAdvert);
-		return new SuccessResult("Job advert updated");
+		return new SuccessResult("İş ilanı güncellendi.");
 	}
 
 	@Override
 	public Result delete(int id) {
 		this.jobAdvertDao.deleteById(id);
-		return new SuccessResult("Job advert deleted");
+		return new SuccessResult("İş ilanı silindi.");
 	}
 	
 	@Override
 	public Result isActiveChange(int id) {
 		 	JobAdvert job=this.jobAdvertDao.getById(id);
 		 	if(job.isActive() == false) {
-		 		return new ErrorResult("This job advert already inactive");
+		 		return new ErrorResult("Bu ilan zaten pasif durumda");
 		 	}
 	        job.setActive(false);
 	        update(job);
-	        return new SuccessResult("Job advert deactivated");
+	        return new SuccessResult("İş ilanı pasifleştirildi");
 	    }
 }

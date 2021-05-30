@@ -38,7 +38,7 @@ public class EmployerUserManager extends UserManager<EmployerUser> implements Em
 
 	@Override
 	public DataResult<List<EmployerUser>> getAll() {
-		return new SuccessDataResult<List<EmployerUser>>(this.employerUserDao.findAll(), "Employers are listed");
+		return new SuccessDataResult<List<EmployerUser>>(this.employerUserDao.findAll(), "Employers are listed.");
 	}
 
 	@Override
